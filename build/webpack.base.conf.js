@@ -4,6 +4,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var MpvuePlugin = require('webpack-mpvue-asset-plugin')
+const MpvueEntry = require('mpvue-entry')
 var glob = require('glob')
 
 function resolve (dir) {
@@ -20,10 +21,10 @@ function getEntry (rootSrc, pattern) {
   }, {})
 }
 
-const appEntry = { app: resolve('./src/main.js') }
-const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
-const entry = Object.assign({}, appEntry, pagesEntry)
-
+//const appEntry = { app: resolve('./src/main.js') }
+//const pagesEntry = getEntry(resolve('./src'), 'pages/**/main.js')
+//const entry = Object.assign({}, appEntry, pagesEntry)
+const entry = MpvueEntry.getEntry('./src/pages.js')
 module.exports = {
   // 如果要自定义生成的 dist 目录里面的文件路径，
   // 可以将 entry 写成 {'toPath': 'fromPath'} 的形式，
@@ -94,6 +95,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new MpvuePlugin()
+    new MpvuePlugin(),
+    new MpvueEntry()
   ]
 }

@@ -30,13 +30,13 @@ export default {
             selectedColor: '#000',
             list: [
             {
-                pagePath: 'pages/index/main',
+                pagePath: 'pages/index',
                 text: '主页',
                 iconPath: 'static/img/pkq.png',
                 selectedIconPath: 'static/img/pkq-active.png'
             },
             {
-                pagePath: 'pages/me/main',
+                pagePath: 'pages/me',
                 text: '个人',
                 iconPath: 'static/img/jlq.png',
                 selectedIconPath: 'static/img/jlq-active.png'
