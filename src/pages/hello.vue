@@ -4,27 +4,25 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                msg:''
-            }
-        },
+export default {
+  data() {
+    return {
+      msg: ""
+    };
+  },
 
-        components: {},
+  components: {},
 
-        methods: {
+  methods: {},
+  onLoad() {
+    // query需要在onLoad周期内获取
+    let query = this.$route.query;
+    console.log(query);
 
-        },
-        onLoad(){ // query需要在onLoad周期内获取
-            let query = this.$route.query;
-            console.log(query);
-
-            this.msg = query.msg;
-        },
-
-        created() {}
-    }
+    this.msg = query.msg;
+  },
+  created() {}
+};
 </script>
 
 <style scoped>
